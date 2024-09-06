@@ -68,7 +68,7 @@ module PostCreation
         run_with_clean_bundler_env("SKIP=RailsSchemaUpToDate git apply patches/fix_test_suite.patch")
         commit "Fix Test Suite"
 
-        insert_into_file "app/models/post.rb", "  validates :title, presence: true\n", :after => "belongs_to :user\n"
+        insert_into_file "app/models/post.rb", "  validates :title, presence: true\n", after: "belongs_to :user\n"
         commit "Add validation to post model"
 
         run("mkdir -p spec/system")
@@ -101,9 +101,9 @@ module PostCreation
       def run_with_clean_bundler_env(cmd)
         success = if defined?(Bundler)
                     Bundler.with_original_env { run(cmd) }
-                  else
+        else
                     run(cmd)
-                  end
+        end
 
         return true if success
 
