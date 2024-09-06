@@ -11,5 +11,5 @@ Rails.application.config.generators do |generator|
   generator.request_specs true
   generator.system_specs true
 
-    generator.orm :active_record, primary_key_type: :uuid
-  end
+  generator.orm :active_record, primary_key_type: :uuid
+end

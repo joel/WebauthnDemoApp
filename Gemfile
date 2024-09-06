@@ -45,7 +45,6 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-
 group :development do
   gem "bundle-audit", require: false
   gem "erb_lint", require: false
@@ -55,9 +54,9 @@ group :development do
   gem "rubocop-gitlab-security", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rails", require: false
-  gem "rubocop-rspec_rails", require: false
   gem "rubocop-rake", require: false
   gem "rubocop-rspec", require: false
+  gem "rubocop-rspec_rails", require: false
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
