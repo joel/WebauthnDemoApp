@@ -127,6 +127,7 @@ GEM
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
     ffaker (2.23.0)
+    foreman (0.88.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -362,6 +363,7 @@ DEPENDENCIES
   erb_lint
   factory_bot_rails
   ffaker
+  foreman (~> 0.88.1)
   importmap-rails
   pg (~> 1.5)
   propshaft
