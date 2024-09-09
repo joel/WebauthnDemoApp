@@ -3,12 +3,8 @@ require "rails_helper"
 RSpec.describe "users/index" do
   before do
     assign(:users, [
-             User.create!(
-               name: "Name"
-             ),
-             User.create!(
-               name: "Name"
-             )
+             create(:user, name: "Name 1"),
+             create(:user, name: "Name 2")
            ])
   end
 

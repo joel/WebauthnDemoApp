@@ -92,3 +92,5 @@ group :test do
 end
 
 gem "foreman", "~> 0.88.1"
+
+gem "webauthn", "~> 3.1"
