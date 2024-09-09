@@ -1,9 +1,7 @@
-# Source: https://github.com/thoughtbot/factory_bot_rails/blob/v6.4.2/lib/generators/factory_bot/model/templates/factories.erb
 FactoryBot.define do
   factory :post do
-    title { "MyString" }
-    body { "MyText" }
+    title { "Amazing #{FFaker::Product.product_name} - Model: #{FFaker::Product.model}" }
+    body { "Description: #{FFaker::Lorem.paragraphs}" }
     user
   end
-  # Here !!!
 end
