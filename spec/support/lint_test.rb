@@ -1,5 +1,3 @@
-require "rails_helper"
-
 class LintFactoryTest < ActiveSupport::TestCase
   FactoryBot.factories.each do |factory|
     describe "The #{factory.name} factory" do
