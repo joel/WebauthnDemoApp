@@ -45,7 +45,7 @@ module WebauthnDemoApp
       config.logger    = ActiveSupport::TaggedLogging.new(logger)
       config.log_level = :debug
 
-      Rails.logger.debug "Logging to STDOUT"
+      # Rails.logger.debug "Logging to STDOUT"
     end
 
     config.active_record.schema_format = :ruby # :sql
