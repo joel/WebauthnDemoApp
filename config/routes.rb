@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   resources :posts
   resources :users
+
+  resource :registrations, only: %i[new create] do
+    post :callback
+  end
+
   get "welcome/home"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

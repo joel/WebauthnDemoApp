@@ -39,11 +39,17 @@ module WebauthnDemoApp
     # Don't generate system test files.
     # config.generators.system_tests = nil
 
-    logger           = ActiveSupport::Logger.new($stdout)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-    config.log_level = :debug
+    if ENV["RAILS_LOG_TO_STDOUT"].present?
+      logger           = ActiveSupport::Logger.new($stdout)
+      logger.formatter = config.log_formatter
+      config.logger    = ActiveSupport::TaggedLogging.new(logger)
+      config.log_level = :debug
+
+      Rails.logger.debug "Logging to STDOUT"
+    end
 
     config.active_record.schema_format = :ruby # :sql
+
+    config.x.webauthn.user_verification = true
   end
 end

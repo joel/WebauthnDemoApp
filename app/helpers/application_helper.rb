@@ -8,7 +8,7 @@ module ApplicationHelper
     return default_url unless current_user
 
     # Normalize the email address
-    normalized_email = current_user.username.strip.downcase
+    normalized_email = user_name.strip.downcase
 
     # Generate the MD5 hash of the normalized email
     hash = Digest::MD5.hexdigest(normalized_email)
@@ -18,9 +18,9 @@ module ApplicationHelper
   end
 
   def user_email
-    return "john.doe@example.com" unless current_user
+    "john.doe@example.com" # unless current_user
 
-    current_user.email
+    # current_user.email
   end
 
   def user_name

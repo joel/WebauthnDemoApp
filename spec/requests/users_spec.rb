@@ -25,6 +25,10 @@ RSpec.describe "/users" do
     skip("Add a hash of attributes invalid for your model")
   end
 
+  before do
+    sign_in_as(:user)
+  end
+
   describe "GET /index" do
     it "renders a successful response" do
       User.create! valid_attributes

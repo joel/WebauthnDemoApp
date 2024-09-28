@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "Welcomes" do
+  before do
+    sign_in_as(:user)
+  end
+
   describe "GET /home" do
     it "returns http success" do
       get "/welcome/home"

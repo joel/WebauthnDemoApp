@@ -41,6 +41,10 @@ RSpec.describe UsersController do
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    sign_in_as(:user)
+  end
+
   describe "GET #index" do
     it "returns a success response" do
       User.create! valid_attributes

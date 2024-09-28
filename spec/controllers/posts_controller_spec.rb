@@ -43,6 +43,10 @@ RSpec.describe PostsController do
   # PostsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    sign_in_as(:user)
+  end
+
   describe "GET #index" do
     it "returns a success response" do
       Post.create! valid_attributes

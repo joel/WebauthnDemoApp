@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Run the service
 
-Things you may want to cover:
+```
+DB_PORT=5432 ./bin/db start
+```
 
-* Ruby version
+```
+DB_PORT=5432 bin/rails db:prepare OR bin/rails db:reset
+```
 
-* System dependencies
+```
+ngrok http 3005
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+RAILS_LOG_TO_STDOUT=true NGROK_DOMAIN=b16a-213-94-41-19 PORT=3005 ./bin/dev
+```

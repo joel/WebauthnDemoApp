@@ -45,6 +45,10 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "foreman"
+
+gem "webauthn"
+
 group :development do
   gem "bundle-audit", require: false
   gem "erb_lint", require: false
@@ -87,10 +91,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem "naught"
   gem "rspec-rails"
   gem "selenium-webdriver"
 end
-
-gem "foreman", "~> 0.88.1"
-
-gem "webauthn", "~> 3.1"

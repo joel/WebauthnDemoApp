@@ -30,6 +30,7 @@ AllCops:
     - vendor/**/*
     - 'spec/spec_helper.rb'
     - 'lib/templates/**/*'
+    - doc/**/*
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
