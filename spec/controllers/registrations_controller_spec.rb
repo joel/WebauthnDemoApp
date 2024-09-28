@@ -96,18 +96,15 @@ RSpec.describe RegistrationsController do
       end
 
       it "creates a new User and Credential" do
-        options = fake_rp.options_for_registration(
-          user: user.to_h.slice(:id, :name),
-          exclude: user.credentials
-        )
-        challenge = options.challenge
-        webauthn_credential = fake_client.create(challenge:, rp_id: fake_rp.id)
+        raw_challenge  = SecureRandom.random_bytes(32)
+        fake_challenge = WebAuthn.configuration.encoder.encode(raw_challenge)
+        webauthn_credential = fake_client.create(challenge: fake_challenge, rp_id: fake_rp.id, user_verified: true)
 
         allow(controller).to receive(:relying_party).and_return(fake_rp)
 
         session = {
           current_registration: {
-            challenge:,
+            challenge: fake_challenge,
             registration_info: {
               username: "John Doe",
               webauthn_id: user.id

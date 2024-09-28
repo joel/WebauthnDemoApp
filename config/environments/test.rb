@@ -71,5 +71,5 @@ Rails.application.configure do
 
   config.webauthn_origin = "http://localhost:3030"
 
-  config.x.webauthn.user_verification = false
+  config.x.webauthn.user_verification = true
 end
