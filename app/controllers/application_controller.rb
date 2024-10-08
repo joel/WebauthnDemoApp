@@ -6,29 +6,19 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_action :enforce_current_user
-
   private
 
   def sign_in(user)
     session[:user_id] = user.id
-    Current.user = user
   end
 
   def sign_out
     session[:user_id] = nil
-    Current.user = nil
   end
 
   def current_user
-    return nil unless Current.user
+    return nil unless session[:user_id]
 
-    @current_user ||= Current.user
-  end
-
-  def enforce_current_user
-    return if current_user.present?
-
-    redirect_to new_registrations_url
+    @current_user ||= User.find(session[:user_id])
   end
 end

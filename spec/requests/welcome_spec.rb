@@ -1,8 +1,10 @@
 require "rails_helper"
 
 RSpec.describe "Welcomes" do
+  let!(:user) { create(:user) }
+
   before do
-    sign_in_as(:user)
+    sign_in_as(user)
   end
 
   describe "GET /home" do

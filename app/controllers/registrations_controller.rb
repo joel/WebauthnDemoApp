@@ -3,8 +3,6 @@
 require "ostruct"
 
 class RegistrationsController < ApplicationController
-  skip_before_action :enforce_current_user
-
   rescue_from WebAuthn::Error, with: :webauthn_error
 
   def new

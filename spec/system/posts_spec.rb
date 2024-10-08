@@ -2,8 +2,11 @@
 
 require "rails_helper"
 
-RSpec.describe "Posts" do
-  let!(:user) { create(:user) }
+RSpec.describe "Posts", :authentication do
+  let!(:user) do
+    create_list(:user, 5)
+    create(:user, name: "John")
+  end
 
   before do
     sign_in_as(:user)
@@ -16,6 +19,8 @@ RSpec.describe "Posts" do
     # Fill in the form fields
     fill_in "Title", with: "My First Post"
     fill_in "Body", with: "This is the body of my first post."
+
+    page.select "John", from: "User"
 
     # Submit the form
     click_on "Create Post"

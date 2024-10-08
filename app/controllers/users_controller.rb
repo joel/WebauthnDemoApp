@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Source: https://github.com/rails/rails/blob/7-1-stable/railties/lib/rails/generators/rails/scaffold_controller/templates/controller.rb.tt
-class UsersController < ApplicationController
+class UsersController < AuthenticatedController
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users

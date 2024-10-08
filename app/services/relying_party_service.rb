@@ -9,6 +9,14 @@ class RelyingPartyService
     relying_party.verify_registration(raw_credential, challenge, user_verification:)
   end
 
+  def options_for_authentication(**keyword_arguments)
+    relying_party.options_for_authentication(**keyword_arguments)
+  end
+
+  def verify_authentication(raw_credential, challenge, user_verification: nil, &)
+    relying_party.verify_authentication(raw_credential, challenge, user_verification:, &)
+  end
+
   private
 
   def relying_party

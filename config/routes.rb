@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     post :callback
   end
 
+  resource :session, only: %i[new create destroy] do
+    post :callback
+  end
+
   get "welcome/home"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -1,18 +1,18 @@
 module RequestAuthenticatedHelper
-  def sign_in_as(*)
-    allow(Current).to receive(:user).and_return(:authenticated_user)
+  def sign_in_as(authenticated_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(authenticated_user)
   end
 end
 
 module ControllerAuthenticatedHelper
-  def sign_in_as(*)
-    allow(Current).to receive(:user).and_return(:authenticated_user)
+  def sign_in_as(authenticated_user)
+    allow(controller).to receive(:current_user).and_return(authenticated_user)
   end
 end
 
 module SystemAuthenticatedHelper
-  def sign_in_as(*)
-    allow(Current).to receive(:user).and_return(:authenticated_user)
+  def sign_in_as(authenticated_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(authenticated_user)
   end
 
   def stub_create(fake_credential)

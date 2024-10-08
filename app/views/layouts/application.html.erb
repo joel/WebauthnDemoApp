@@ -23,6 +23,21 @@
 
   <body class="h-full">
     <%= render partial: "shared/headers" %>
+    <ul>
+      <%- if authenticated? -%>
+      <li>
+        <%= link_to "Sign Out", session_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
+      </li>
+      <%- else -%>
+      <li>
+        <%= link_to "Sign In", new_session_path, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
+      </li>
+      <li>
+        <%= link_to "Register", new_registrations_path, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
+      </li>
+      <%- end -%>
+    </ul>
+
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

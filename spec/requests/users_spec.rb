@@ -25,8 +25,10 @@ RSpec.describe "/users" do
     skip("Add a hash of attributes invalid for your model")
   end
 
+  let!(:user) { create(:user) }
+
   before do
-    sign_in_as(:user)
+    sign_in_as(user)
   end
 
   describe "GET /index" do
