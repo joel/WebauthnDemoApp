@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.json { render json: { errors: ["Username doesn't exist"] }, status: :unprocessable_entity }
+        format.json { render json: { errors: ["User not registered!"] }, status: :unprocessable_entity }
       end
     end
   end

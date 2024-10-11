@@ -26,14 +26,15 @@
     <ul>
       <%- if authenticated? -%>
       <li>
-        <%= link_to "Sign Out", session_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
+        <%= link_to "Sign Out", session_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-4" %>
+        <%# link_to "Sign Out", session_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
       </li>
       <%- else -%>
       <li>
-        <%= link_to "Sign In", new_session_path, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
+        <%= link_to "Sign In", new_session_path, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-5" %>
       </li>
       <li>
-        <%= link_to "Register", new_registrations_path, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-0" %>
+        <%= link_to "Register", new_registrations_path, class: "block px-4 py-2 text-sm text-gray-700", role: "menuitem", tabindex: "-1", id: "user-menu-item-6" %>
       </li>
       <%- end -%>
     </ul>

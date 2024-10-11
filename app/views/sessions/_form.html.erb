@@ -1,4 +1,8 @@
 <%= form_with scope: :session, url: session_path, local: false, id: "new-session", data: { controller: "new-session", action: "ajax:success->new-session#create ajax:error->new-session#error" } do |form| %>
+  <div id="error_explanation" class="hidden bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    <ul></ul>
+  </div>
+
   <div class="my-5">
     <%= form.label :username %>
     <%= form.text_field :username, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>

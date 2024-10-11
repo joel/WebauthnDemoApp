@@ -66,7 +66,7 @@ RSpec.describe SessionsController do
         post :create, params: { session: invalid_attributes }, format: :json
         expect(response).to have_http_status(:unprocessable_entity)
 
-        expect(response.parsed_body).to eq("errors" => ["Username doesn't exist"])
+        expect(response.parsed_body).to eq("errors" => ["User not registered!"])
       end
     end
   end
