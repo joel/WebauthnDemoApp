@@ -28,4 +28,25 @@ RSpec.describe "Registration", :authentication do
     # Expect to see the success message or be redirected to the home page
     expect(page).to have_content("Welcome#home")
   end
+
+  context "when the user is already registered" do
+    before do
+      create(:user, name: "John")
+    end
+
+    it "does not allow a user to register with the same username" do
+      # Visit the page where the user can create a post
+      visit new_registrations_path
+
+      # Fill in the form fields
+      fill_in "Username", with: "John"
+      fill_in "Nickname", with: "John's Security Key"
+
+      # Submit the form
+      click_on "Save Registration"
+
+      # Expect to see the error message
+      expect(page).to have_content("Name has already been taken")
+    end
+  end
 end

@@ -30,7 +30,23 @@ export default class extends Controller {
   }
 
   error(event) {
-    let response = event.detail[0];
-    console.log(response);
+    let [response, status, xhr] = event.detail;
+    console.log(response); // Logs the error response from the server
+
+    // Display the error messages
+    const errorExplanation = document.getElementById('error_explanation');
+    const errorMessageList = errorExplanation.querySelector('ul');
+
+    // Clear any existing error messages
+    errorMessageList.innerHTML = '';
+
+    response.errors.forEach(error => {
+      let li = document.createElement('li');
+      li.textContent = error;
+      errorMessageList.appendChild(li);
+    });
+
+    // Make the error explanation visible
+    errorExplanation.classList.remove('hidden');
   }
 }
