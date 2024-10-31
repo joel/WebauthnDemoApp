@@ -1,19 +1,10 @@
 # README
 
-## Run the service
+Example inspired from https://github.com/cedarcode/webauthn-rails-demo-app and the tweak of it https://github.com/pedz/rails-7-passkey-demo
+using: https://github.com/cedarcode/webauthn-ruby and https://github.com/github/webauthn-json
 
-```
-DB_PORT=5432 ./bin/db start
-```
+Other code with differente approach
+https://alliedcode.com/bits_and_bytes/passkeys-rails-gem
+https://github.com/alliedcode/passkeys-rails
+using: https://github.com/w3c/webauthn
 
-```
-DB_PORT=5432 bin/rails db:prepare OR bin/rails db:reset
-```
-
-```
-ngrok http 3005
-```
-
-```
-RAILS_LOG_TO_STDOUT=true NGROK_DOMAIN=b16a-213-94-41-19 PORT=3005 ./bin/dev
-```
