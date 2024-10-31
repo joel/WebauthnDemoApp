@@ -18,7 +18,7 @@ using: https://github.com/w3c/webauthn
 ## Local Network
 
 ```
-ngrok http 9292
+ngrok http 3005
 ```
 
 ## Rails app, change 6858-213-94-41-19 for the generate one by Ngrok
