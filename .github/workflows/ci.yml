@@ -19,22 +19,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.5
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       -
-        name: "Lint / rubocop"
-        run: |
-          gem install rubocop
-          gem install rubocop-performance
-          gem install rubocop-rake
-          gem install rubocop-rspec
-          gem install rubocop-rspec_rails
-          gem install rubocop-gitlab-security
-          gem install rubocop-rails
-          gem install rubocop-capybara
-          gem install rubocop-factory_bot
-          rubocop --parallel
-      -
-        name: "Lint / erblint"
-        run: bin/erblint --lint-all
+        name: Run tests and linters
+        run: TEST_BROWSER=headless_chrome bundle exec rake
       -
         name: "Security / brakeman"
         run: |

@@ -6,7 +6,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, :js, type: :system) do
-    driven_by :selenium_chrome_headless # selenium when we need javascript
+    driven_by :headless_chrome # selenium when we need javascript
   end
 
   config.before(:each, :authentication, type: :system) do
