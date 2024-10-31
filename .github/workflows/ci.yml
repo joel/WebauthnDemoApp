@@ -33,17 +33,25 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.5
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       -
-        name: "Test / Unit Tests (controllers, models, helpers, mailers, jobs, lib, requests)"
-        run: bin/bundle exec rspec spec --exclude-pattern "spec/system/**/*_spec.rb"
+        name: Install dependencies
+        run: bin/bundle install --jobs 4 --retry 3
       -
-        name: "Prepare System Tests"
+        name: "Prepare Tests"
         run: |
           bin/rails db:environment:set RAILS_ENV=test
           bin/rails db:drop db:create db:schema:load
           bin/rails db:migrate
           bin/rails assets:precompile
+      -
+        name: "Lint / Rubocop / Ruby code"
+        run:  bundle exec rake rubocop
+      -
+        name: "Lint / Views"
+        run:  bundle exec rake erblint
+      -
+        name: "Test / Unit Tests (controllers, models, helpers, mailers, jobs, lib, requests)"
+        run: bin/bundle exec rspec spec --exclude-pattern "spec/system/**/*_spec.rb"
       -
         name: "Test / System Tests"
         run: TEST_BROWSER=headless_chrome bin/bundle exec rspec spec/system
